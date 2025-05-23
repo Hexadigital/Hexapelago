@@ -57,6 +57,7 @@ def get_meta(options_source: dict, race: bool = False) -> Dict[str, Union[List[s
 @app.route('/generate', methods=['GET', 'POST'])
 @app.route('/generate/<race>', methods=['GET', 'POST'])
 def generate(race=False):
+    return render_template('404.html'), 404
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
@@ -74,6 +75,7 @@ def generate(race=False):
 
 
 def start_generation(options: Dict[str, Union[dict, str]], meta: Dict[str, Any]):
+    return render_template('404.html'), 404
     results, gen_options = roll_options(options, set(meta["plando_options"]))
 
     if any(type(result) == str for result in results.values()):
@@ -105,6 +107,7 @@ def start_generation(options: Dict[str, Union[dict, str]], meta: Dict[str, Any])
 
 
 def gen_game(gen_options: dict, meta: Optional[Dict[str, Any]] = None, owner=None, sid=None):
+    return render_template('404.html'), 404
     if not meta:
         meta: Dict[str, Any] = {}
 
@@ -187,6 +190,7 @@ def gen_game(gen_options: dict, meta: Optional[Dict[str, Any]] = None, owner=Non
 
 @app.route('/wait/<suuid:seed>')
 def wait_seed(seed: UUID):
+    return render_template('404.html'), 404
     seed_id = seed
     seed = Seed.get(id=seed_id)
     if seed:
@@ -201,6 +205,7 @@ def wait_seed(seed: UUID):
 
 
 def upload_to_db(folder, sid, owner, race):
+    return render_template('404.html'), 404
     for file in os.listdir(folder):
         file = os.path.join(folder, file)
         if file.endswith(".zip"):
