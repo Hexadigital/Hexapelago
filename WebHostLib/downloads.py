@@ -77,6 +77,8 @@ def download_slot_file(room_id, player_id: int):
             fname = f"AP+{app.jinja_env.filters['suuid'](room_id)}_P{slot_data.player_id}_{slot_data.player_name}.apmq"
         elif slot_data.game == "Kingdom Hearts 2":
             fname = f"AP_{app.jinja_env.filters['suuid'](room_id)}_P{slot_data.player_id}_{slot_data.player_name}.zip"
+        elif slot_data.game == "Luigi's Mansion":
+            fname = f"AP+{app.jinja_env.filters['suuid'](room_id)}_P{slot_data.player_id}_{slot_data.player_name}.aplm"
         elif slot_data.game == "Ocarina of Time":
             stream = io.BytesIO(slot_data.data)
             if zipfile.is_zipfile(stream):
