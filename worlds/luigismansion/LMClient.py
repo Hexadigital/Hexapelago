@@ -194,6 +194,7 @@ class LMCommandProcessor(ClientCommandProcessor):
 class LMContext(CommonContext):
     command_processor = LMCommandProcessor
     game = "Luigi's Mansion"
+    patch_suffix = ".aplm"
     items_handling = 0b111
     boo_count: "Label" = None
 
