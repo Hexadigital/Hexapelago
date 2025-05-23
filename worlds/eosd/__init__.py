@@ -23,7 +23,7 @@ components.append(Component(
 
 class TWorld(World):
 	game = DISPLAY_NAME
-	option_definitions = game_options
+	option_dataclass = game_options
 
 	item_name_to_id = {name: data.code for name, data in item_table.items()}
 	location_name_to_id = {name: id for name, id in location_table.items()}
